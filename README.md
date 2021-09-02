@@ -2,4 +2,4 @@ Node.js and React Project from NASA Launch Control. Created This Project for Lea
 
 Architecture Diagram:
 
-![Screenshot](Project_Architectural_Diagram.png.png)
+![alt text](https://github.com/sagarkpatil3/NASA-Project/blob/master/Project_Architectural_Diagram.png?raw=true)
