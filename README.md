@@ -1,4 +1,4 @@
-Node.js and React Project from NASA Launch Control. Created This Project for Learning Perpose.
+Node.js and React Project for NASA Launch Control. This Project is Created for Learning Perpose.
 
 Architecture Diagram:
 
