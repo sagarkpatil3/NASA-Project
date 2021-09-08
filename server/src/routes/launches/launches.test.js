@@ -13,7 +13,7 @@ describe(" Launches Api ",() => {
     
     describe('Test GET /launches',  ()=>{
         test('It should respond with 200 success', async ()=>{
-            const response = await request(app).get('/launches').expect(200).expect('Content-Type', /json/)
+            const response = await request(app).get('/v1/launches').expect(200).expect('Content-Type', /json/)
         })
     })
     
@@ -32,7 +32,7 @@ describe(" Launches Api ",() => {
         }
     
         test('It should respond with 200 success', async()=>{
-            const response = await request(app).post('/launches').send(launchData).expect('Content-Type', /json/).expect(201)
+            const response = await request(app).post('/v1/launches').send(launchData).expect('Content-Type', /json/).expect(201)
     
             const requestedDate = new Date(launchData.launchDate).valueOf();
             const responseDate = new Date(response.body.launchDate).valueOf();
@@ -41,7 +41,7 @@ describe(" Launches Api ",() => {
         })
     
         test('It should catch missing required properties', async()=>{
-            let response = await request(app).post('/launches').send(launchDataWithoutDate).expect('Content-Type', /json/).expect(400)
+            let response = await request(app).post('/v1/launches').send(launchDataWithoutDate).expect('Content-Type', /json/).expect(400)
             expect(response.body).toStrictEqual({
                 error: 'Missing required launch property'
             })
@@ -49,7 +49,7 @@ describe(" Launches Api ",() => {
     
         test('It should catch invalid dates', async() =>{
             launchDataWithoutDate["launchDate"] = 'Hi'; 
-            let response =  await request(app).post('/launches').send({
+            let response =  await request(app).post('/v1/launches').send({
                 mission:"Kepler test1",
                 rocket:"Explorer Is2",
                 launchDate:"Jooott",
